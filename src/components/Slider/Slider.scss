@@ -1,0 +1,98 @@
+.slider{
+    margin: 0rem;
+    max-width: 576px;
+    margin: 0 auto;
+    color: white;
+    position: relative;
+
+    .carousel-item{
+        height: 650px;
+
+        .carousel-caption{
+            top:0;
+
+            h3{
+                font-size: 2rem;
+                margin-bottom: 2rem;
+                font-weight: bold;
+            }
+            .slideText{
+                font-family: montserrat;
+                font-size: 2rem;
+                font-weight: 300;
+            }
+
+            .actorSlideStat{
+                display: flex;
+                justify-content: center;
+                margin-top: 2rem;
+        
+                .actorSlideImage{
+                    width:  100px;
+                    height: 100px;
+                    line-height: 100px;
+                    border-radius: 50%;
+                    background-color: #1192FD;
+                    float: left;
+                    font-size: 2.8rem;
+                    font-weight: bold;
+                    
+                }
+            
+                .actorStatistics{
+                    width: 200px;
+                    text-align: left;
+                    font-family: 'lato';
+                    margin-left: 2rem;
+                    font-weight: bold;
+
+                    h5{
+                        font-size: 1.5rem;
+                        font-weight: inherit;
+                    }
+                    p{
+                        font-size: 1.1rem;
+                        margin-bottom: 0;
+                        color: gray;
+                    }
+            
+                }
+        
+            }
+            
+        }
+    } 
+
+    .carousel-indicators li{
+        width:  15px;
+        height: 15px;
+        border-radius: 50%;
+    }
+
+    .carousel-control-next-icon, .carousel-control-prev-icon{
+        width: 13px;
+        height: 24px;
+    }
+
+    .carousel-control-next-icon{
+        background-image: url(./img/arrow-right.png);
+    }
+   
+
+    .carousel-control-prev-icon{
+        background-image: url(./img/arrow-left.png);
+    }
+
+    
+
+}
+
+@media (min-width: 992px){
+
+    .slider{
+        max-width: 1200px;
+        .carousel-item{
+            height: 450px;
+        }
+    }
+}

@@ -1,0 +1,36 @@
+.grammyNavBar{
+  .navbar-light .navbar-nav .nav-link {
+      color: black;
+      font-size: 0.6em;
+    }
+    
+    .navbar {
+      justify-content: flex-start;
+      padding-right: 1em;
+    }
+    
+    .navbar-brand{
+      margin-left: 10px;
+    }
+    
+    .navbar-brand img{
+      width:130px;
+    }
+    
+    #navbar-icon img{
+      width: 25px;
+      transform: rotate(180deg);
+    }
+    .navbar-toggler {
+        border: none;
+        margin: 10px;
+    }
+    
+    #navbar-icon{
+      margin-left: auto;
+    }
+
+    .dropdown-item{
+      font-size: 0.6em;
+    }
+}

@@ -1,0 +1,172 @@
+
+.header{
+  position: relative;
+  width: 100%; 
+  margin-top: 4rem;
+  z-index: 1;
+  color: white;
+  height: 900px;
+}
+
+.rectangle{
+  width: 95%; 
+  height: 0;
+  padding: 7%;
+  padding-bottom: 140%;
+  position: absolute;
+}
+
+.mr-top{
+  top: 0;
+}
+
+.mr-right{
+  right: 0;
+}
+
+.mr-left{
+  left: 0;
+}
+
+.mr-bottom{
+  bottom: 0;
+}
+
+.back{
+  z-index: 1;
+}
+.middle{
+  z-index: 2;
+}
+.top{
+  z-index: 3;
+}
+
+.main-content-text{
+  font-size: 4.3vw;
+  margin-bottom: 0.6em;
+  width: 95%;
+}
+
+.main-title{
+  font-size: 6.5vw;
+  font-weight: bold;
+  line-height: 1em;
+}
+
+.huge{
+  font-size: 4em;
+  font-weight: bold;
+  line-height: 0.9em;
+  margin-bottom: 0.2em;
+}
+
+
+.main-content{
+  margin-top: 35px;
+}
+
+.tx-color-gradient{
+  text-transform: uppercase;
+  background: linear-gradient(to right, #08E4CC, #1192FD);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.block{
+  display: block;
+}
+
+.grammy-img{
+  position: absolute;
+  width: 43%;
+  margin-top: 60px; 
+  margin-left: 72%;
+  z-index: 5;
+}
+
+@media (min-width: 576px){
+    .header{
+      max-width: 576px;
+  
+    }
+  
+    .main-content-text{
+      font-size: 1.5em;
+    }
+    .main-title{
+      font-size: 2em;
+    }
+    .huge{
+      font-size: 4em;
+    }
+    .rectangle{
+      width: 520px; 
+      padding-bottom: 780px;
+    }
+  }
+
+@media (min-width: 768px){
+  .header{
+    max-width: 576px;
+    margin: 2em auto;
+  }
+}
+
+  
+@media (min-width: 992px){
+    #navbar-icon {
+      display: none;
+    }
+    .navbar {
+      justify-content: flex-end;
+    }
+  
+    .navbar-expand-lg .navbar-nav {
+      width: 100%;
+      justify-content: space-evenly;
+    }
+  
+    .header{
+      max-width: 90%;
+      margin: 30px auto;
+      height: 550px;
+    }
+  
+    .main-content-text.title{
+      font-size: 1.3em;
+    }
+  
+    .main-content{
+      margin-top: 60px;
+    }
+  
+    .main-title{
+      font-size: 2.5em;
+      line-height: 1em;
+    }
+  
+    .huge{
+      font-size: 4em;
+      margin-bottom: 0;
+    }
+  
+    .main-content-text{
+      font-size: 0.8em;
+      width: 58%;
+    }
+  
+    .rectangle{
+      width: 90%; 
+      padding-top: 4%;
+      padding-left: 6%;
+      padding-bottom: 48%
+    }
+  
+    .grammy-img{
+      width: 45%;
+      margin-top: 60px; 
+      margin-left: 60%;
+      z-index: 5;
+    }
+}

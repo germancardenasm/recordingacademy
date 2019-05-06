@@ -1,0 +1,31 @@
+@import './src/components/NavBar/NavBar.scss';
+@import './src/components/Header/Header.scss';
+@import './src/components/Slider/Slider.scss';
+
+*{
+  font-family: 'lato';
+}
+
+.App {
+  text-align: center;   
+}
+
+body{
+  background-image: url('./img/IMG-20190502-WA0001.jpg');
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
+.container{
+  padding: 0;
+  min-width: 300px;
+}
+
+.bg-color-gradient{
+  background-image: linear-gradient(to right, #08E4CC, #1192FD);
+}
+
+.bg-color-black{
+  background-color: black;
+}
+
