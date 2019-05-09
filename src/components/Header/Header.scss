@@ -6,6 +6,9 @@
   z-index: 1;
   color: white;
   height: 900px;
+  margin-bottom: 0;
+  margin: 0 auto;
+
 }
 
 .rectangle{
@@ -88,9 +91,10 @@
 @media (min-width: 576px){
     .header{
       max-width: 576px;
-  
+      margin: 0 auto;
+    
     }
-  
+
     .main-content-text{
       font-size: 1.5em;
     }
@@ -105,14 +109,7 @@
       padding-bottom: 780px;
     }
   }
-
-@media (min-width: 768px){
-  .header{
-    max-width: 576px;
-    margin: 2em auto;
-  }
-}
-
+  
   
 @media (min-width: 992px){
     #navbar-icon {
@@ -130,7 +127,7 @@
     .header{
       max-width: 90%;
       margin: 30px auto;
-      height: 550px;
+      height: 500px;
     }
   
     .main-content-text.title{
@@ -170,3 +167,10 @@
       z-index: 5;
     }
 }
+
+@media (min-width: 1200px){
+  .header{
+
+    height: 600px;
+  }
+} 

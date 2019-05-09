@@ -2,6 +2,7 @@ import React from 'react';
 import Image from 'react-bootstrap/Image';
 import Carousel from '../../../node_modules/react-bootstrap/Carousel';
 
+
 class Slider  extends React.Component{
 
     constructor(props, context) {
@@ -24,30 +25,30 @@ class Slider  extends React.Component{
     
       render() {
         const { index, direction } = this.state;
-    
+
         return (
           <Carousel className="slider"
             activeIndex={index}
             direction={direction}
             onSelect={this.handleSelect}
-          >
+            interval={null}>
             <Carousel.Item>
-              
               <Carousel.Caption>
                 <h3>FEATURE INVITEES</h3>
-                <span className="slideText">Lorem ipsum dolor sit amet, consectetur adipiscing elit,  sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </span>
+                <span className="slideText">{this.props.data[1].quote}</span>
                 <div className="actorSlideStat">
                   <div className="actorSlideImage">TS</div> 
                   <div className="actorStatistics"> 
-                      <h5>TOM SMITH</h5>
-                      <p> Grammy wins: {1}</p>   
-                      <p> Grammy Nominations: {1}</p>   
+                      <h5>{this.props.data[1].actorName}</h5>
+                      <p> Grammy wins: {this.props.data[1].grammyWins}</p>   
+                      <p> Grammy Nominations: {this.props.data[1].grammyNominations}</p>   
                   </div>  
                 </div>
               </Carousel.Caption>
             </Carousel.Item>
-{/*             <Carousel.Item>
-    
+           
+            
+            <Carousel.Item>
               <Carousel.Caption>
                 <h3>FEATURE INVITEES</h3>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
@@ -61,11 +62,13 @@ class Slider  extends React.Component{
                   Praesent commodo cursus magna, vel scelerisque nisl consectetur.
                 </p>
               </Carousel.Caption>
-            </Carousel.Item> */}
+            </Carousel.Item> 
           </Carousel>
         );
       }
     
 }
+
+
 
 export default Slider;

@@ -1,25 +1,25 @@
 .slider{
-    margin: 0rem;
     max-width: 576px;
     margin: 0 auto;
     color: white;
     position: relative;
 
     .carousel-item{
-        height: 650px;
+        height: 550px;
 
         .carousel-caption{
             top:0;
 
             h3{
-                font-size: 2rem;
-                margin-bottom: 2rem;
+                font-size: 1.3rem;
+                margin-bottom: 1rem;
                 font-weight: bold;
             }
             .slideText{
                 font-family: montserrat;
-                font-size: 2rem;
+                font-size: 1.8rem;
                 font-weight: 300;
+                line-height: 2.5rem;
             }
 
             .actorSlideStat{
@@ -28,13 +28,13 @@
                 margin-top: 2rem;
         
                 .actorSlideImage{
-                    width:  100px;
-                    height: 100px;
-                    line-height: 100px;
+                    width:  60px;
+                    height: 60px;
+                    line-height:  60px;
                     border-radius: 50%;
                     background-color: #1192FD;
                     float: left;
-                    font-size: 2.8rem;
+                    font-size: 1.3rem;
                     font-weight: bold;
                     
                 }
@@ -47,11 +47,11 @@
                     font-weight: bold;
 
                     h5{
-                        font-size: 1.5rem;
+                        font-size: 0.9rem;
                         font-weight: inherit;
                     }
                     p{
-                        font-size: 1.1rem;
+                        font-size: 0.8rem;
                         margin-bottom: 0;
                         color: gray;
                     }
@@ -64,8 +64,8 @@
     } 
 
     .carousel-indicators li{
-        width:  15px;
-        height: 15px;
+        width:  10px;
+        height: 10px;
         border-radius: 50%;
     }
 
@@ -92,7 +92,7 @@
     .slider{
         max-width: 1200px;
         .carousel-item{
-            height: 450px;
+            height: 350px;
         }
     }
 }

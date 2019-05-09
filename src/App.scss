@@ -1,6 +1,8 @@
+@import './variables.scss';
 @import './src/components/NavBar/NavBar.scss';
 @import './src/components/Header/Header.scss';
 @import './src/components/Slider/Slider.scss';
+@import './src/components/Membership/Membership.scss';
 
 *{
   font-family: 'lato';
@@ -12,7 +14,7 @@
 
 body{
   background-image: url('./img/IMG-20190502-WA0001.jpg');
-  background-repeat: no-repeat;
+  background-repeat: repeat-y;
   background-size: 100%;
 }
 
@@ -28,4 +30,6 @@ body{
 .bg-color-black{
   background-color: black;
 }
+
+
 
