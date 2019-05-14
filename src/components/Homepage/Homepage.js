@@ -32,6 +32,54 @@ class Homepage extends React.Component{
                     title: "",
                     textContent: "", 
                 }, 
+                statistics:{
+                  title:"RECORDING ACADEMY MEMBER CLASS OF 2019 STATS",
+                  grammyNominations:"",
+                  grammyWinners:"",
+                  gender: {
+                      male:"",
+                      female:"",
+                      other:"",
+                      notDisclose:"",
+                  },
+                  age:{
+                      under39:"",
+                      over40:"",
+                  },
+                  genres:{
+                      pop:"",
+                      rock:"",
+                      jazz:"",
+                      newage:"",
+                      bluegrass:"",
+                      folk:"",
+                      reggae:"",
+                      world:"",
+                      theater:"",
+                      classical:"",
+                  },
+                  craft:[
+                      ["Instrumentalist", "15"],
+                      ["Vocalist", "23"],
+                      ["Producer", "6"],
+                      ["Song Writers", "14"],
+                      ["Engineers", "19"],
+                      ["Arrangers", "7"],
+                      ["Art Directors", "11"],
+                      ["Album Notes", "13"],
+                      ["Narrators", "0"],
+                      ["Music Directors", "1"]
+                  ],
+                  ethnicity:{
+                      african:"",
+                      alaskan:"",
+                      asian:"",
+                      caucasian:"",
+                      hispanic:"",
+                      notDisclose:"",
+                      other:"",
+                  },
+              }
               }
          }
   }

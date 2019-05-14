@@ -61,11 +61,11 @@ const data ={
         classical:"",
     },
     craft:[
+       ["instrumentalist", "15"],
        ["vocalist", "10"],
        ["producer", "15"],
        ["composers", "18"],
        ["engineers", "8"],
-       ["instrumentalist", "15"],
        ["arrangers", "10"],
        ["artDirectors", "17"],
        ["albumNotes", "10"],

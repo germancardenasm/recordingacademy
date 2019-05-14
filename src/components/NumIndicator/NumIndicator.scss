@@ -1,0 +1,27 @@
+.numIndicator_containter{
+    
+    position: relative;
+    max-width: 540px;
+    min-width: 540px;
+    height: 240px;
+    text-align: right;
+    margin-top: 2rem;
+
+
+    .rectangle_numindicator{
+        height: 90%;
+        width: 95%;
+        position: absolute;
+        z-index: -1;
+        text-align: left;
+    }
+
+    .numIndicator_text{
+        line-height: 1.4;
+        margin: 0;
+        font-size: 14rem;
+        font-weight: bolder;
+    } 
+
+
+}

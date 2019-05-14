@@ -1,4 +1,3 @@
-
 import  React from 'react';
 import * as d3 from "d3";
 
@@ -7,20 +6,30 @@ class Bargraph extends React.Component{
     constructor(props){
         super(props)
         this.createBarChart = this.createBarChart.bind(this);
+
+        this.state={
+            barHeight: 66,
+        }
      }
 
      componentDidMount() {
-        this.createBarChart()
+        this.createBarChart();
+     }
+
+     textInBarRigthMargin(num){
+         const x = parseFloat(num) >= 10 ? 25 : 15
+         return x
      }
 
      createBarChart() {
         const node = this.node
-        let barHeight = 46;
-        let xScale = d3.scaleLinear().range([0,153]);
+        let barHeight = this.state.barHeight
+        let xScale = d3.scaleLinear().range([27,260]);
             xScale.domain([0,d3.max(this.props.data, (d)=>parseFloat(d[1]))]);
-        let yScale= d3.scaleBand().range([0,this.props.data.length*46]);
+        let yScale= d3.scaleBand().range([0,this.props.data.length*barHeight]).paddingInner(0.2);
             yScale.domain(this.props.data.map(data => data[0]))
-    
+         
+        this.setState({barHeight: yScale.bandwidth(),})   
         let defs = d3.select(node).append('defs');
         
         let gradient = defs.append("linearGradient")
@@ -42,48 +51,53 @@ class Bargraph extends React.Component{
                     .attr("stop-color", "#1192FD")
                     .attr("stop-opacity", 1);
         
-        let barGroup= d3.select(node).append('g');          
+        let barGroup= d3.select(node).append('g').attr("transform","translate(170,46)");          
         
-        barGroup
+        let individualBars = barGroup
             .selectAll('rect')
             .data(this.props.data)
             .enter()
-            .append('rect');
+            .append('g');
  
-        barGroup
-            .selectAll('rect')
-            .data(this.props.data)
+        individualBars
+            .append('rect')
             .attr("fill", "url(#svgGradient)")
+            .attr('y', function(d) {  return yScale(d[0]); })
             .attr('width', function(d) {  return xScale(d[1]); })
-            .attr('height', barHeight - 10)
-            .attr('transform', function(d, i){
-                                return "translate(0," + (i * barHeight) + ")"});
-                                       
+            .attr('height', yScale.bandwidth());
+        
+        individualBars
+            .append('text')
+            .attr('class', 'value')
+            .attr('y', (a) => yScale(a[0]) + yScale.bandwidth() / 2)
+            .attr('x', (a) => xScale(a[1])-this.textInBarRigthMargin(a[1]))
+            .attr('text-anchor', 'middle')
+            .text((a) => `${a[1]}%`)    
+
         barGroup
         .selectAll('rect')
         .data(this.props.data)
         .exit()
         .remove();
         
-        var yAxis = d3.axisRight(yScale)
-            .tickSize(50);
+        var yAxis = d3.axisRight(yScale);
             
-        let yAxisG = d3.select(node).append('g');
+        let yAxisG = d3.select(node).append('g').attr('className','tickNames').attr("transform","translate(100,0)");
         yAxisG.call(customYAxis);   
 
         function customYAxis(g) {
             g.call(yAxis);
             g.select(".domain").remove();
-            g.selectAll(".tick:not(:first-of-type) line").attr("stroke", "#777").attr("stroke-dasharray", "2,2");
-            g.selectAll(".tick text").attr("x", 0).attr("dy", 46);
+            g.selectAll(".tick line").attr("stroke", "none");
+            g.selectAll(".tick text").attr("x", 55).attr("dy", yScale.bandwidth()).attr('text-anchor',"end");
           }
-
      }
      
      render(){
         return(
-            <div>  
-                <svg ref={node => this.node = node} width={700} height={700}>
+            <div className="bargraph_container" style={{height: 725}}>  
+                <div className="rectangle_statistics bg-color-black "><h3 className="title">CRAFT</h3></div>
+                <svg className="bargraph_svg" ref={node => this.node = node} width={550} height={750}>
                 </svg>
             </div>
         ) 

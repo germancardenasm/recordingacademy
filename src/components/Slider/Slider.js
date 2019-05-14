@@ -1,5 +1,4 @@
 import React from 'react';
-import Image from 'react-bootstrap/Image';
 import Carousel from '../../../node_modules/react-bootstrap/Carousel';
 
 

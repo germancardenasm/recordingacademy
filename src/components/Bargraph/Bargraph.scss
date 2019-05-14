@@ -1,0 +1,39 @@
+
+.bargraph_container{
+    position: relative;
+    max-width: 540px;
+    min-width: 540px;
+
+   .rectangle_statistics{
+        height: 100%;
+        width: 55%;
+        position: absolute;
+        z-index: -1;
+    }
+    
+    .bargraph_svg{
+        margin-left: 100px;
+    }
+    .bargraph_container{
+        margin-left: 5rem;
+        width: 300px;
+    }
+    
+    .tick{
+        color: white;
+        font-family: 'montserrat';
+        font-size: 1.2rem;
+    }
+    
+    .tickNames{
+        width: 100px;
+    }
+    
+    .value{
+        fill: white;
+        font-size: 0.8rem;
+    }
+
+
+
+}
