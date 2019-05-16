@@ -18,11 +18,11 @@ class Arcchart extends React.Component{
     ['Did not disclose', '5' ],
     ['Other', '7']]
 
-    let width = 360;
-    let height = 560;
+    let width = 460;
+    let height = 800;
     let radius = Math.min(width, height) / 2;
     const node = this.node;
-    const colorArray = ["#1192FD","#08E4CC","#7544CE","#21ACBF","#5D57D9","#5FB6FF","#5FB6FF"];
+    const colorArray = ["#1192FD","#08E4CC","#7544CE","#21ACBF","#5D57D9","#5FB6FF","#75E8E3"];
 
     let colorScale= d3.scaleOrdinal()
                     .range(colorArray.map(color => d3.rgb(color)))
@@ -37,8 +37,12 @@ class Arcchart extends React.Component{
 
     let yAxisG = d3.select(node)
                    .append('g')
-                   .attr('transform', 'translate(0, 50)') 
+                   .attr('transform', 'translate(50, 80)') 
                    .call(yAxis);
+
+        yAxisG.select(".domain").remove();
+        yAxisG.selectAll(".tick line").attr("stroke", "none");
+        yAxisG.selectAll(".tick text").attr("x", 30);
 
     let circleTicks = yAxisG.selectAll('cirle')
                         .data(data)
@@ -47,18 +51,18 @@ class Arcchart extends React.Component{
                         .attr('transform' , function(d) { return 'translate('+0+', '+  yScale(d[0]) +')'} )
                         
         circleTicks.append('circle')
-                    .attr("r", 7)
-                    .attr("fill", 'red')
+                    .attr("r", 15)
+                    .attr('fill', d => colorScale(d));
                    
     //Pie Chart
 
     let svg =  d3.select(node).append("g")
-                .attr('transform', 'translate(' + (width / 2) +
-                    ',' + (height) + ')');
+                .attr('transform', 'translate(' + (242) +
+                    ',' + (650) + ')');
 
     let arc = d3.arc()
                 .outerRadius(radius)
-                .innerRadius(radius-40);
+                .innerRadius(radius-60);
 
     let pie = d3.pie()
                 .value( d => d[1] )
@@ -79,8 +83,8 @@ class Arcchart extends React.Component{
     render(){
         return(
             <div className="Arcchart_container">  
-                <div className="Arcchart_rectangle bg-color-black "><h3 className="title">AGE</h3></div>
-                <svg className="Arcchart_svg" ref={node => this.node = node} width={550} height={800}>
+                <div className="Arcchart_rectangle bg-color-black "><h3 className="title">ETHNICITY</h3></div>
+                <svg className="Arcchart_svg" ref={node => this.node = node} width={550} height={900}>
                 </svg>
             </div>
         )
