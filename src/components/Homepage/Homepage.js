@@ -46,18 +46,18 @@ class Homepage extends React.Component{
                       under39:"",
                       over40:"",
                   },
-                  genres:{
-                      pop:"",
-                      rock:"",
-                      jazz:"",
-                      newage:"",
-                      bluegrass:"",
-                      folk:"",
-                      reggae:"",
-                      world:"",
-                      theater:"",
-                      classical:"",
-                  },
+                  genres:[
+                    ["Pop", "18"],
+                    ["Rock", "13"],
+                    ["Jazz", "6"],
+                    ["New Age", "5"],
+                    ["Bluegrass", "19"],
+                    ["Folk", "10"],
+                    ["Reggae", "15"],
+                    ["World", "21"],
+                    ["Theater", "4"],
+                    ["Clasical", "6"]
+                  ],
                   craft:[
                       ["Instrumentalist", "15"],
                       ["Vocalist", "23"],
@@ -94,7 +94,7 @@ class Homepage extends React.Component{
   
         return(
           <div>
-            <Container className="container-fluid">
+            <Container className="homepage container-fluid">
               <NavBar className="navbar-expand" />
               <Header data={this.state.data.headerData}/>
               <Slider data={this.state.data.sliderData}/>

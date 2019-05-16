@@ -9,12 +9,9 @@ function Membership(props){
             <div className=" rectangle_member bg-color-gradient back mr-bottom mr-right" ></div>
             <div className=" content_member bg-color-black mr-bottom " >
                 <div className="content_member_text">
-
-                    <h3>{props.data.title}</h3>
+                    <h3 className="title">{props.data.title}</h3>
                     <p className="main-content-text"> {props.data.textContent}  </p>
                     </div>
-                
-
             </div>
         </div>
     )

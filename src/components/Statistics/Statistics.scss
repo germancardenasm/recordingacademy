@@ -1,13 +1,8 @@
 @import '../Bargraph/Bargraph.scss';
 @import '../NumIndicator/NumIndicator.scss';
-
+@import '../Bubblechart/Bubblechart.scss';
+@import '../Arcchart/Arcchart.scss';
 .statistics{
     color: white;
     padding: 0.8rem;
-
-    .title{
-        margin: 2rem;
-        font-size: 1.4rem; 
-        font-weight: bold;
-    }
 }

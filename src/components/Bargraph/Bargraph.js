@@ -18,7 +18,7 @@ class Bargraph extends React.Component{
 
      textInBarRigthMargin(num){
          const x = parseFloat(num) >= 10 ? 25 : 15
-         return x
+         return x 
      }
 
      createBarChart() {
@@ -75,10 +75,10 @@ class Bargraph extends React.Component{
             .text((a) => `${a[1]}%`)    
 
         barGroup
-        .selectAll('rect')
-        .data(this.props.data)
-        .exit()
-        .remove();
+                .selectAll('rect')
+                .data(this.props.data)
+                .exit()
+                .remove();
         
         var yAxis = d3.axisRight(yScale);
             
@@ -95,7 +95,7 @@ class Bargraph extends React.Component{
      
      render(){
         return(
-            <div className="bargraph_container" style={{height: 725}}>  
+            <div className="bargraph_container">  
                 <div className="rectangle_statistics bg-color-black "><h3 className="title">CRAFT</h3></div>
                 <svg className="bargraph_svg" ref={node => this.node = node} width={550} height={750}>
                 </svg>

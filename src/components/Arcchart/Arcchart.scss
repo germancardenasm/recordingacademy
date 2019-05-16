@@ -1,23 +1,23 @@
-
-.bargraph_container{
+.Arcchart_container{
     position: relative;
     max-width: 540px;
     min-width: 540px;
+    height: 800px;
     margin-top: 2rem;
 
-   .rectangle_statistics{
+   .Arcchart_rectangle{
         height: 100%;
-        width: 55%;
+        width: 90%;
         position: absolute;
         z-index: -1;
         padding: 2rem;
     }
     
-    .bargraph_svg{
+    .Arcchart_svg{
         margin-left: 100px;
         margin-top: 40px;
     }
-    .bargraph_container{
+    .Arcchart_container{
         margin-left: 5rem;
         width: 300px;
     }
@@ -34,6 +34,7 @@
     
     .value{
         fill: white;
-        font-size: 0.8rem;
+        font-size: 2rem;
+        font-weight: bold;
     }
 }

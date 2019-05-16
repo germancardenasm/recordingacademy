@@ -33,7 +33,7 @@ class Slider  extends React.Component{
             interval={null}>
             <Carousel.Item>
               <Carousel.Caption>
-                <h3>FEATURE INVITEES</h3>
+                <h3 className="title">FEATURE INVITEES</h3>
                 <span className="slideText">{this.props.data[1].quote}</span>
                 <div className="actorSlideStat">
                   <div className="actorSlideImage">TS</div> 
