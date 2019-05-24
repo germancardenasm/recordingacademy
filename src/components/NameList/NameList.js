@@ -11,22 +11,60 @@ class NameList extends React.Component {
         this.state={
             selectedLetter: "all",
             data: nominee,
+            shownListData: nominee,
+            NameListlength: nominee.length,
+            index: [],
         }
     }
 
     onClickHandler(data){
-        console.log(data);
-        let filteredArtists = {};
-
+        if(data==="all"){
+            this.setState({
+                selectedLetter: 'all',
+            });
+        } else {
+            this.setState({
+                selectedLetter: data,
+            });
+        }
+      
     }
 
+    getInitials(){
+        let data = this.state.shownListData;
+        let index = new Set();
+        for(let i in data) 
+            index.add(data[i][0].lastName[0].toUpperCase());
+        
+        this.setState({
+            index: Array.from(index),
+        })
+    }
 
+    filterList(){
+        let filteredArtists =[];
+        if(this.state.selectedLetter!=="all")
+             filteredArtists = this.state.data.filter( d => d[0].lastName[0]===this.state.selectedLetter);
+        else
+             filteredArtists = this.state.data;
+
+        this.setState({
+            shownListData: filteredArtists,
+            NameListlength: filteredArtists.length,
+        })
+    }
+    
+    componentDidMount(){
+        this.getInitials();
+    }
 
     render(){
         return (
             <div className='namelist-container'>
-              <AlphabeticPager data={getInitials(nominee)} onClick={(data) => this.onClickHandler(data)} />
-              <NameTable />
+              <h3 className="title section-main-title">Recording Academy Member Class Of 2019 List</h3>
+              <AlphabeticPager data={this.state.index} selectedLetter={this.state.selectedLetter} onClick={(data) => this.onClickHandler(data)} />
+              <NameTable data={this.state.shownListData} selectedLetter={this.state.selectedLetter}/>
+              <Results selectedLetter= {this.state.selectedLetter} results={this.state.shownListData.length}/>
             </div>
         )
     }
@@ -35,49 +73,48 @@ class NameList extends React.Component {
 function AlphabeticPager(props){
     return(
         <div className="alphaPager">
-          <div className = 'indexButton' value='all' key='all' onClick = {() => props.onClick("all")}>ALL</div>
-          <IndexButtons data={props.data} onClick = {(data) => props.onClick(data)}/>
+          <div className = 'indexButton' value='all' key='all' 
+               onClick = {() => props.onClick("all")}>ALL</div>
+          <AlphabeticButtons selectedLetter={props.selectedLetter} data={props.data} 
+               onClick = {(data) => props.onClick(data)}/>
         </div>  
     )
 }
 
-function getInitials(data){
-    let index = new Set();
-    for(let i in data) 
-        index.add(data[i].lastName[0].toUpperCase());
-    return Array.from(index);
-}
-
-function IndexButtons(props) {
+function AlphabeticButtons(props) {
     let buttons = [];
     let letters =  props.data;
+    
     for(let i in letters){
-        buttons.push(
-            <div className = 'indexButton' 
-                 value={letters[i]} 
-                 key={i}  
-                 onClick = {() => props.onClick(letters[i])}> 
-
-                    {letters[i]}
-
-            </div>)
+      buttons.push(
+        <div className = { props.selectedLetter == letters[i] ? 'indexButton selected' : 'indexButton'}
+             value={letters[i]} 
+             key={i}  
+             onClick = {() => props.onClick(letters[i])}> 
+          {letters[i]}
+        </div>)
     }
     return buttons;
 }
 
-function NameTable(){
-    let tableRows = generateTableRows(nominee);
+function NameTable(props){
+
+    let filteredArtists = props.data;
+
+    if(props.selectedLetter!=="all")
+         filteredArtists = props.data.filter( d => d[0].lastName[0]===props.selectedLetter);
+
     return(
         <div className='nameTable'>
-            {tableRows}
+            <TableRows data={filteredArtists}/>
         </div>
     )
 }
 
-function generateTableRows(params) {
+function TableRows(props) {
     let rows = []; 
-    for(let index in params){
-        rows.push(<ListItem data={params[index]} key={index}/>)
+    for(let index in props.data){
+        rows.push(<ListItem data={props.data[index][0]} key={index}/>)
     }
     return rows;
 }
@@ -85,16 +122,24 @@ function generateTableRows(params) {
 
 
 function ListItem(props){
+  return(
+      <div className='listItem'> 
+        <span className='firstName'>{props.data.name}</span> <span className='lastName'>{props.data.lastName}</span>
+        <span className="listItem-icons" style={{display: props.data.grammyWinner ? 'inline-block' : 'none'}}>   
+        <Image className="grammyWinnerImage" src={grammyWinnerLogo}/>
+        <a className="control-next" role="button" href="#">
+          <Image className="control-next-icon" src={arrow}/> 
+        </a>
+        </span>
+      </div>
+    )
+}
 
+function Results(props) {
+    
     return(
-        <div className='listItem'> 
-              <span className='firstName'>{props.data.name}</span> <span className='lastName'>{props.data.lastName}</span>
-              <span className="listItem-icons" style={{display: props.data.grammyWinner ? 'inline-block' : 'none'}}>   
-                <Image className="grammyWinnerImage" src={grammyWinnerLogo}/>
-                <a className="control-next" role="button" href="#">
-                  <Image className="control-next-icon" src={arrow}/> 
-                </a>
-            </span>
+        <div className='results'>
+            <p>{props.selectedLetter.toUpperCase()}: {props.results} results</p>
         </div>
     )
 }

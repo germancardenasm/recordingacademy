@@ -89,20 +89,18 @@ class Homepage extends React.Component{
             data: loadedData,
         });
     };
-     /* 
-    <Container className="homepage container-fluid">
-      <NavBar className="navbar-expand" />
-      <Header data={this.state.data.headerData}/>
-      <Slider data={this.state.data.sliderData}/>
-      <Membership data={this.state.data.membershipData}/>
-      <Statistics data={this.state.data.statistics}/>
-    </Container> */
+  
     render(){
   
         return(
-          <div>
+          <Container className="homepage container-fluid"> 
+            <NavBar className="navbar-expand" />
+            <Header data={this.state.data.headerData}/>
+            <Slider data={this.state.data.sliderData}/>
+            <Membership data={this.state.data.membershipData}/>
+            <Statistics data={this.state.data.statistics}/>
             <NameList />
-          </div>
+            </Container> 
         )
     }
   }

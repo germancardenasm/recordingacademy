@@ -1,24 +1,27 @@
 .namelist-container{
     padding: 2rem;
-  
+    color: white;
+    height: 800px;
     .alphaPager{
         .indexButton{
-            color: white;
             font-weight: bold;
             font-size: 1.2rem;
             display: inline-block;
             width: 50px;
             height: 50px;
             line-height: 50px;
-            //border: 1px white solid;
             text-align: center;
             margin: 0.25rem;
             border-radius: 50%;
+        }
+        .selected{
+            background-color: #1192FD;
         }
         .indexButton:hover{
           background-color: #1192FD;
           cursor: pointer;
         }
+
     }
 
     .listItem{
@@ -53,6 +56,10 @@
                 width: 12px;
             }
         }
+    }
+    .results{
+        margin-top: 2rem;
+        text-align: center;
     }
 
 
