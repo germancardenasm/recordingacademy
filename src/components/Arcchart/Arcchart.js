@@ -43,8 +43,9 @@ class Arcchart extends React.Component{
         yAxisG.select(".domain").remove();
         yAxisG.selectAll(".tick line").attr("stroke", "none");
         yAxisG.selectAll(".tick text").attr("x", 30);
-
+        
     let circleTicks = yAxisG.selectAll('cirle')
+                        .append('g')
                         .data(data)
                         .enter()
                         .append('g')

@@ -6,7 +6,7 @@ import Header from '../Header/Header.js';
 import Slider from '../Slider/Slider.js';
 import Membership from "../Membership/Membership.js";
 import Statistics from "../Statistics/Statistics.js";
-
+import NameList from '../NameList/NameList.js'
 let loadedData = data;
 
 class Homepage extends React.Component{
@@ -89,18 +89,19 @@ class Homepage extends React.Component{
             data: loadedData,
         });
     };
-     
+     /* 
+    <Container className="homepage container-fluid">
+      <NavBar className="navbar-expand" />
+      <Header data={this.state.data.headerData}/>
+      <Slider data={this.state.data.sliderData}/>
+      <Membership data={this.state.data.membershipData}/>
+      <Statistics data={this.state.data.statistics}/>
+    </Container> */
     render(){
   
         return(
           <div>
-            <Container className="homepage container-fluid">
-              <NavBar className="navbar-expand" />
-              <Header data={this.state.data.headerData}/>
-              <Slider data={this.state.data.sliderData}/>
-              <Membership data={this.state.data.membershipData}/>
-              <Statistics data={this.state.data.statistics}/>
-            </Container>
+            <NameList />
           </div>
         )
     }

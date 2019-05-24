@@ -1,0 +1,59 @@
+.namelist-container{
+    padding: 2rem;
+  
+    .alphaPager{
+        .indexButton{
+            color: white;
+            font-weight: bold;
+            font-size: 1.2rem;
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            line-height: 50px;
+            //border: 1px white solid;
+            text-align: center;
+            margin: 0.25rem;
+            border-radius: 50%;
+        }
+        .indexButton:hover{
+          background-color: #1192FD;
+          cursor: pointer;
+        }
+    }
+
+    .listItem{
+        position: relative;
+        border-bottom: 1px solid #D8D8D8;
+        color: white;
+        height: 80px;
+        line-height: 80px;
+        font-size: 1.5rem;
+    
+
+        .firstName>span{
+            font-family: 'montserrat';
+        }
+        .lastName>span{
+            font-weight: bold;
+            font-family: 'montserrat';
+        }
+        .listItem-icons{
+            position: absolute;
+            right: 0;
+        }
+        .grammyWinnerImage{
+            width:35px;
+            margin-right: 20px;
+        }
+        .control-next{
+            width: 25px;
+            text-align: right;
+            height: 100%;
+            .control-next-icon{
+                width: 12px;
+            }
+        }
+    }
+
+
+}
