@@ -32,7 +32,7 @@ const nominee = [
     [{
         name:  'Steve',
         lastName: 'Harris',
-        grammyWinner: true,
+        grammyWinner: false,
     }],
     [{
         name: 'Kurt',
@@ -82,7 +82,7 @@ const nominee = [
     [{
         name:  'Steve',
         lastName: 'Harris',
-        grammyWinner: true,
+        grammyWinner: false,
     }],
     [{
         name: 'Bono',
@@ -93,6 +93,26 @@ const nominee = [
         name: 'Carlos',
         lastName: 'Santana',
         grammyWinner: true,
+    }],
+    [{
+        name: 'Kurt',
+        lastName: 'Cobain',
+        grammyWinner: false,
+    }],
+    [{
+        name: 'James',
+        lastName: 'Heitfield',
+        grammyWinner: true,
+    }],
+    [{
+        name:  'Avril',
+        lastName: 'Lavign',
+        grammyWinner: true,
+    }],
+    [{
+        name: 'Dave',
+        lastName: 'Mustaon',
+        grammyWinner: false,
     }]
 ]
 
