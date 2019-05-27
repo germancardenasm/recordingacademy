@@ -1,8 +1,8 @@
-import React from '../../../node_modules/react';
-import Navbar from '../../../node_modules/react-bootstrap/Navbar';
-import Nav from '../../../node_modules/react-bootstrap/Nav';
-import NavDropdown from '../../../node_modules/react-bootstrap/NavDropdown';
-import Image from '../../../node_modules/react-bootstrap/Image';
+import React from 'react';
+import Navbar from 'react-bootstrap/Navbar';
+import Nav from 'react-bootstrap/Nav';
+import NavDropdown from 'react-bootstrap/NavDropdown';
+import Image from 'react-bootstrap/Image';
 import logo from '../../img/tra.png';
 import share from '../../img/share.svg';
 

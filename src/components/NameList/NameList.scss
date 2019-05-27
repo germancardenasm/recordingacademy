@@ -2,7 +2,11 @@
     padding: 2rem;
     color: white;
     height: 800px;
+    max-width: 576px;
+    margin: 0 auto;
+
     .alphaPager{
+      text-align: center;
         .indexButton{
             font-weight: bold;
             font-size: 1.2rem;
@@ -15,52 +19,89 @@
             border-radius: 50%;
         }
         .selected{
-            background-color: #1192FD;
+          background-color: #1192FD;
         }
         .indexButton:hover{
-          background-color: #1192FD;
+          background-color: hsla(100%,100%,100%,0.7);
           cursor: pointer;
         }
 
     }
 
-    .listItem{
-        position: relative;
-        border-bottom: 1px solid #D8D8D8;
-        color: white;
-        height: 80px;
-        line-height: 80px;
+    .nameTable{
         font-size: 1.5rem;
-    
+        color: white;
 
-        .firstName>span{
-            font-family: 'montserrat';
-        }
-        .lastName>span{
-            font-weight: bold;
-            font-family: 'montserrat';
-        }
-        .listItem-icons{
-            position: absolute;
-            right: 0;
-        }
-        .grammyWinnerImage{
-            width:35px;
-            margin-right: 20px;
-        }
-        .control-next{
-            width: 25px;
-            text-align: right;
-            height: 100%;
-            .control-next-icon{
-                width: 12px;
+        .listItem{
+            position: relative;
+            border-bottom: 1px solid #D8D8D8;
+            height: 80px;
+            line-height: 80px;
+            font-family: montserrat;
+ 
+            .lastName{
+                font-weight: bold;
+            }
+            .listItem-icons{
+                position: absolute;
+                right: 0;
+            }
+            .grammyWinnerImage{
+                width:35px;
+                margin-right: 20px;
+            }
+            .control-next{
+                width: 25px;
+                text-align: right;
+                height: 100%;
+                .control-next-icon{
+                    width: 12px;
+                }
             }
         }
+
     }
+
     .results{
         margin-top: 2rem;
         text-align: center;
+        font-size: 1.2rem;
+        font-family: montserrat;
+        white-space: pre;
+        .bold{
+            font-weight: bold;
+        }
     }
 
+    .pager-container{
+      a{
+        display: inline-block;
+        width: 50px;
+        height: 50px;
+        img{
+          max-height: 35px;
+        }
+      }    
 
-}
+      text-align: center;
+        .indexButton{
+            font-weight: bold;
+            font-size: 1.2rem;
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            margin: 0.25rem;
+            border-radius: 50%;
+        }
+        .selected{
+          background-color: #1192FD;
+        }
+        .indexButton:hover{
+          background-color: hsla(100%,100%,100%,0.7);
+          cursor: pointer;
+        }
+
+    }
+  }

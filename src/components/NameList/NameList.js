@@ -1,7 +1,10 @@
 import React from 'react';
 import Image from 'react-bootstrap/Image';
+import Pagination from 'react-bootstrap/Pagination'
+import PageItem from 'react-bootstrap/PageItem' 
 import grammyWinnerLogo from '../../img/GrammyWinner.png';
-import arrow from '../../img/arrow-right.png';
+import arrowRight from '../../img/arrow-right.png';
+import arrowLeft from '../../img/arrow-left.png';
 import nominee from './data.js';
 
 class NameList extends React.Component {
@@ -10,9 +13,11 @@ class NameList extends React.Component {
         super(props);
         this.state={
             selectedLetter: "all",
+            selectedPage: 1,
             data: nominee,
             shownListData: nominee,
-            NameListlength: nominee.length,
+            nameListlength: nominee.length,
+            rowsperPager: 10,
             index: [],
         }
     }
@@ -21,13 +26,13 @@ class NameList extends React.Component {
         if(data==="all"){
             this.setState({
                 selectedLetter: 'all',
-            });
+            }, ()=> this.filterList());
         } else {
             this.setState({
                 selectedLetter: data,
-            });
+            }, ()=> this.filterList());
         }
-      
+        
     }
 
     getInitials(){
@@ -50,7 +55,7 @@ class NameList extends React.Component {
 
         this.setState({
             shownListData: filteredArtists,
-            NameListlength: filteredArtists.length,
+            nameListlength: filteredArtists.length,
         })
     }
     
@@ -63,8 +68,9 @@ class NameList extends React.Component {
             <div className='namelist-container'>
               <h3 className="title section-main-title">Recording Academy Member Class Of 2019 List</h3>
               <AlphabeticPager data={this.state.index} selectedLetter={this.state.selectedLetter} onClick={(data) => this.onClickHandler(data)} />
-              <NameTable data={this.state.shownListData} selectedLetter={this.state.selectedLetter}/>
+              <Table data={this.state.shownListData} />
               <Results selectedLetter= {this.state.selectedLetter} results={this.state.shownListData.length}/>
+              <Pager selectedPage={this.state.selectedPage} nameListlength={this.state.nameListlength} rowsperPager={this.state.rowsperPager}/>
             </div>
         )
     }
@@ -73,7 +79,7 @@ class NameList extends React.Component {
 function AlphabeticPager(props){
     return(
         <div className="alphaPager">
-          <div className = 'indexButton' value='all' key='all' 
+          <div className = { props.selectedLetter == 'all' ? 'indexButton selected' : 'indexButton'} value='all' key='all' 
                onClick = {() => props.onClick("all")}>ALL</div>
           <AlphabeticButtons selectedLetter={props.selectedLetter} data={props.data} 
                onClick = {(data) => props.onClick(data)}/>
@@ -97,16 +103,11 @@ function AlphabeticButtons(props) {
     return buttons;
 }
 
-function NameTable(props){
-
-    let filteredArtists = props.data;
-
-    if(props.selectedLetter!=="all")
-         filteredArtists = props.data.filter( d => d[0].lastName[0]===props.selectedLetter);
+function Table(props){
 
     return(
         <div className='nameTable'>
-            <TableRows data={filteredArtists}/>
+            <TableRows data={props.data}/>
         </div>
     )
 }
@@ -119,29 +120,61 @@ function TableRows(props) {
     return rows;
 }
 
-
-
 function ListItem(props){
   return(
       <div className='listItem'> 
-        <span className='firstName'>{props.data.name}</span> <span className='lastName'>{props.data.lastName}</span>
+        <span className='list Items firstName'>{props.data.name}</span> <span className='list Items lastName'>{props.data.lastName}</span>
         <span className="listItem-icons" style={{display: props.data.grammyWinner ? 'inline-block' : 'none'}}>   
         <Image className="grammyWinnerImage" src={grammyWinnerLogo}/>
         <a className="control-next" role="button" href="#">
-          <Image className="control-next-icon" src={arrow}/> 
+          <Image className="control-next-icon" src={arrowRight}/> 
         </a>
+    
         </span>
       </div>
     )
 }
 
 function Results(props) {
-    
-    return(
-        <div className='results'>
-            <p>{props.selectedLetter.toUpperCase()}: {props.results} results</p>
-        </div>
-    )
+  return(
+    <div className='results'>
+        <span className='bold'>{props.selectedLetter.toUpperCase()}: </span> <span className='results'> {props.results} results</span>
+    </div>
+  )
 }
+
+function Pager(props){
+  return(
+    <div className='pager-container'>
+      <a className="control-arrow" role="button" href="#" value='back'>
+            <Image className="control-next-icon" src={arrowLeft}/> 
+      </a>
+      <PagerButtons selectedPage={props.selectedPage} nameListlength={props.nameListlength} rowsperPager={props.rowsperPager}/>
+      <a className="control-arrow" role="button" href="#" value='next'>
+            <Image className="control-next-icon" src={arrowRight}/> 
+      </a>
+    </div>
+  )
+}
+
+function PagerButtons(props){
+
+  let buttons = [];
+
+  let qtyOfButtons =  Math.ceil(props.nameListlength / props.rowsperPager);
+    
+  for(let i= 1; i <= qtyOfButtons; i++){
+    buttons.push(
+      <div className = { props.selectedPage === i ? 'indexButton selected' : 'indexButton'}
+            value={i} 
+            key={i}  
+            onClick = {() => props.onClick(i)}> 
+        {i}
+      </div>)
+  }
+  return buttons;
+}
+
+
 
 export default NameList;
