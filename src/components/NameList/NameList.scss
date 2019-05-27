@@ -1,9 +1,9 @@
 .namelist-container{
     padding: 2rem;
     color: white;
-    height: 800px;
     max-width: 576px;
     margin: 0 auto;
+    height: 500px;
 
     .alphaPager{
       text-align: center;
@@ -31,14 +31,16 @@
     .nameTable{
         font-size: 1.5rem;
         color: white;
-
+        min-height: 400px;
+        display: flex;
+        flex-flow: column;
         .listItem{
             position: relative;
             border-bottom: 1px solid #D8D8D8;
             height: 80px;
             line-height: 80px;
             font-family: montserrat;
- 
+            margin: 0 1rem;
             .lastName{
                 font-weight: bold;
             }
@@ -76,6 +78,7 @@
     .pager-container{
       text-align: center;
       margin-top: 2rem; 
+
       a{
         display: inline-block;
         width: 50px;
@@ -99,3 +102,24 @@
       }
     }
   }
+
+@media (min-width: 992px){
+   
+}
+
+@media (min-width: 1200px){
+
+  .namelist-container {
+      
+      height: 900px;
+      max-width: 1100px;
+      .nameTable{
+        flex-wrap: wrap;
+        height: 500px;
+      }
+
+  }
+
+
+} 
+

@@ -17,7 +17,7 @@ class NameList extends React.Component {
             data: nominee,
             shownListData: nominee,
             nameListlength: nominee.length,
-            rowsperPage: 10,
+            rowsperPage: 12,
             index: [],
         }
     }
