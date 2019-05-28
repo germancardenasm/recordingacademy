@@ -1,18 +1,18 @@
 .slider{
     max-width: 576px;
-    margin: 0 auto;
+    margin: 2rem auto;
     color: white;
     position: relative;
 
     .carousel-item{
-        height: 550px;
+        height: 500px;
 
         .carousel-caption{
             top:0;
 
             .slideText{
                 font-family: montserrat;
-                font-size: 1.8rem;
+                font-size: 1.5rem;
                 font-weight: 300;
                 line-height: 2.5rem;
             }
@@ -87,7 +87,7 @@
     .slider{
         max-width: 1200px;
         .carousel-item{
-            height: 350px;
+            height: 400px;
         }
     }
 }

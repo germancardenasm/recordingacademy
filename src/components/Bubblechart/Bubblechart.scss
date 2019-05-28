@@ -1,32 +1,25 @@
 
 .bubblechart_container{
     position: relative;
-    max-width: 540px;
-    min-width: 540px;
-    height: 351px;
+    width: 330px;
+    height: 226px;
     margin-top: 2rem;
 
    .bubblechart_rectangle{
-        height: 100%;
-        width: 90%;
+        height: 185px;
+        width: 313px;
         position: absolute;
         z-index: -1;
-        padding: 2rem;
-    }
-    
-    .bargraph_svg{
-        margin-left: 100px;
-        margin-top: 40px;
-    }
-    .bargraph_container{
-        margin-left: 5rem;
-        width: 300px;
+        padding: 1rem;
+        .title{
+          font-size: 1rem;
+        }
     }
     
     .tick{
         color: white;
         font-family: 'montserrat';
-        font-size: 1.2rem;
+        font-size: 0.8rem;
     }
     
     .tickNames{
@@ -35,7 +28,7 @@
     
     .value{
         fill: white;
-        font-size: 2rem;
+        font-size: 1.2rem;
         font-weight: bold;
     }
 }

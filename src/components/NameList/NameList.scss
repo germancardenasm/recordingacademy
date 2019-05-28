@@ -3,7 +3,8 @@
     color: white;
     max-width: 576px;
     margin: 0 auto;
-    height: 500px;
+    height: auto;
+    margin-bottom: 5rem;
 
     .alphaPager{
       text-align: center;
@@ -103,11 +104,8 @@
     }
   }
 
-@media (min-width: 992px){
-   
-}
 
-@media (min-width: 1200px){
+@media (min-width: 992px){
 
   .namelist-container {
       

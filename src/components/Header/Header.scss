@@ -2,13 +2,12 @@
 .header{
   position: relative;
   width: 100%; 
+  margin: 0 auto;
   margin-top: 4rem;
   z-index: 1;
   color: white;
-  height: 900px;
-  margin-bottom: 0;
-  margin: 0 auto;
-
+  height: 160vw;
+  overflow: hidden;
 }
 
 .rectangle{
@@ -46,9 +45,9 @@
 }
 
 .main-content-text{
-  font-size: 4.3vw;
+  font-size: 4vw;
   margin-bottom: 0.6em;
-  width: 95%;
+  width: 90%;
 }
 
 .main-title{
@@ -67,6 +66,7 @@
 
 .main-content{
   margin-top: 35px;
+
 }
 
 .tx-color-gradient{
@@ -92,11 +92,11 @@
     .header{
       max-width: 576px;
       margin: 0 auto;
-    
+      height: 900px;
     }
 
     .main-content-text{
-      font-size: 1.5em;
+      font-size: 1.4rem;
     }
     .main-title{
       font-size: 2em;
@@ -125,8 +125,10 @@
     }
   
     .header{
+      overflow: visible;
       max-width: 90%;
       margin: 30px auto;
+      margin-bottom: 60px;
       height: 500px;
     }
   
@@ -149,15 +151,15 @@
     }
   
     .main-content-text{
-      font-size: 0.8em;
-      width: 58%;
+      font-size: 1rem;
+      width: 70%;
     }
   
     .rectangle{
       width: 90%; 
       padding-top: 4%;
       padding-left: 6%;
-      padding-bottom: 48%
+      padding-bottom: 52%
     }
   
     .grammy-img{
@@ -170,8 +172,10 @@
 
 @media (min-width: 1200px){
   .header{
-
     height: 600px;
+  }
+  .main-content-text{
+    font-size: 1.2rem;
   }
 } 
 

@@ -20,13 +20,13 @@ class Bubblechart extends React.Component{
         const node = this.node 
         let margin = {top: 50, right: 0, bottom: 0, left: 60};
 
-        let rScale = d3.scaleLinear().range([0,130]);
+        let rScale = d3.scaleLinear().range([0,75]);
             rScale.domain([0,d3.max(data, (d)=>parseFloat(d[1]))]);
-        let yScale= d3.scaleBand().range([0,225]).paddingInner(0.2);
+        let yScale= d3.scaleBand().range([0,130]).paddingInner(0.2);
             yScale.domain(data.map(data => data[0]));
-        let xScale= d3.scaleBand().range([0,200]).paddingInner(0.2);
+        let xScale= d3.scaleBand().range([0,110]).paddingInner(0.2);
             xScale.domain(data.map(data => data[0]));
-        let colorScale= d3.scaleOrdinal().range([d3.color("#08E4CC"),d3.color("#1192FD")]);
+        let colorScale= d3.scaleOrdinal().range([d3.color("#1192FD"),d3.color("#08E4CC")]);
             colorScale.domain(data.map(data => data[0]));
 
         let svg= d3.select(node).append("g");
@@ -35,7 +35,7 @@ class Bubblechart extends React.Component{
         const leaf = svg.selectAll("g")
             .data(data)
             .join("g")
-            .attr("transform",  d =>  `translate(${xScale(d[0])+300},${yScale(d[0])+150})`)          
+            .attr("transform",  d =>  `translate(${xScale(d[0])+200},${yScale(d[0])+85})`)          
  
         leaf.append("circle")
             .attr("r", d => rScale(d[1]))
@@ -47,13 +47,13 @@ class Bubblechart extends React.Component{
             .join("tspan")
             .attr("class","value")
             .attr("x", 0)
-            .attr("y", (d, i, nodes) => `${i - nodes.length / 2 + 0.8}em`)
+            .attr("y", (d, i, nodes) => `${i - nodes.length / 2 + 1}em`)
             .attr("text-anchor", "middle")
             .text(d => d+"%");
 
         let yAxis = d3.axisRight(yScale);
             
-        let yAxisG = d3.select(node).append('g').attr('className','tickNames').attr("transform", `translate( ${25} , ${100})`);
+        let yAxisG = d3.select(node).append('g').attr('className','tickNames').attr("transform", `translate( ${10} , ${55})`);
             yAxisG.call(customYAxis);   
 
         function customYAxis(g) {
@@ -69,7 +69,7 @@ class Bubblechart extends React.Component{
         return(
             <div className="bubblechart_container">  
                 <div className="bubblechart_rectangle bg-color-black "><h3 className="title">AGE</h3></div>
-                <svg className="bubblegraph_svg" ref={node => this.node = node} width={550} height={400}>
+                <svg className="bubblegraph_svg" ref={node => this.node = node} width={330} height={226}>
                 </svg>
             </div>
         ) 

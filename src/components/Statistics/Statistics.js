@@ -22,12 +22,15 @@ class Statistics extends React.Component{
         return(
           <div className="statistics">
             <h3 className="title section-main-title"> Recording Academy Member Class Of 2019 Stats</h3>
-            <NumIndicator data={643} name={"GRAMMY NOMINATIONS"}/>
-            <NumIndicator data={210} name={"GRAMMY WINNERS"}/> 
-            <Bargraph data={this.props.data.genres}/>
-            <Bargraph data={this.props.data.craft}/> 
-            <Bubblechart /> 
-            <Arcchart />
+            <div className='charts-containter'>
+              <NumIndicator data={643} name={"GRAMMY NOMINATIONS"}/>
+              <NumIndicator data={210} name={"GRAMMY WINNERS"}/> 
+              <Bubblechart /> 
+              <Bubblechart /> 
+              <Bargraph data={this.props.data.genres}/>
+              <Bargraph data={this.props.data.craft}/> 
+              <Arcchart />
+            </div>
           </div>
 
         ) 

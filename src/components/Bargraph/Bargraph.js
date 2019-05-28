@@ -8,7 +8,7 @@ class Bargraph extends React.Component{
         this.createBarChart = this.createBarChart.bind(this);
 
         this.state={
-            barHeight: 66,
+            barHeight: 50,
         }
      }
 
@@ -24,7 +24,7 @@ class Bargraph extends React.Component{
      createBarChart() {
         const node = this.node
         let barHeight = this.state.barHeight
-        let xScale = d3.scaleLinear().range([27,260]);
+        let xScale = d3.scaleLinear().range([30,190]);
             xScale.domain([0,d3.max(this.props.data, (d)=>parseFloat(d[1]))]);
         let yScale= d3.scaleBand().range([0,this.props.data.length*barHeight]).paddingInner(0.2);
             yScale.domain(this.props.data.map(data => data[0]))
@@ -51,7 +51,7 @@ class Bargraph extends React.Component{
                     .attr("stop-color", "#1192FD")
                     .attr("stop-opacity", 1);
         
-        let barGroup= d3.select(node).append('g').attr("transform","translate(170,46)");          
+        let barGroup= d3.select(node).append('g').attr("transform","translate(130,50)");          
         
         let individualBars = barGroup
             .selectAll('rect')
@@ -82,22 +82,22 @@ class Bargraph extends React.Component{
         
         var yAxis = d3.axisRight(yScale);
             
-        let yAxisG = d3.select(node).append('g').attr('className','tickNames').attr("transform","translate(100,0)");
+        let yAxisG = d3.select(node).append('g').attr('className','tickNames').attr("transform","translate(60,15)");
         yAxisG.call(customYAxis);   
 
         function customYAxis(g) {
             g.call(yAxis);
             g.select(".domain").remove();
             g.selectAll(".tick line").attr("stroke", "none");
-            g.selectAll(".tick text").attr("x", 55).attr("dy", yScale.bandwidth()).attr('text-anchor',"end");
+            g.selectAll(".tick text").attr("x", 50).attr("dy", yScale.bandwidth()).attr('text-anchor',"end");
           }
      }
      
      render(){
         return(
             <div className="bargraph_container">  
-                <div className="rectangle_statistics bg-color-black "><h3 className="title">CRAFT</h3></div>
-                <svg className="bargraph_svg" ref={node => this.node = node} width={550} height={750}>
+                <div className="rectangle_statistics bg-color-black "><h3 className="title">GENRES</h3></div>
+                <svg className="bargraph_svg" ref={node => this.node = node} width={330} height={556}>
                 </svg>
             </div>
         ) 

@@ -1,22 +1,23 @@
 
 .bargraph_container{
     position: relative;
-    max-width: 540px;
-    min-width: 540px;
+    width: 330px;
+    height: 566px;
     margin-top: 2rem;
+    
 
    .rectangle_statistics{
-        height: 100%;
-        width: 55%;
+        height: 566px;
+        width: 173px;
         position: absolute;
         z-index: -1;
-        padding: 2rem;
+        padding: 1rem;
+        .title{
+          font-size: 1rem;
+        }
     }
     
-    .bargraph_svg{
-        margin-left: 100px;
-        margin-top: 40px;
-    }
+
     .bargraph_container{
         margin-left: 5rem;
         width: 300px;
@@ -25,7 +26,7 @@
     .tick{
         color: white;
         font-family: 'montserrat';
-        font-size: 1.2rem;
+        font-size: 0.9rem;
     }
     
     .tickNames{

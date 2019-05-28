@@ -1,16 +1,18 @@
 .Arcchart_container{
     position: relative;
-    max-width: 540px;
-    min-width: 540px;
-    height: 1000px;
+    width: 330px;
+    height: 641px;
     margin-top: 2rem;
 
    .Arcchart_rectangle{
-        height: 90%;
-        width: 90%;
+        height: 620px;
+        width: 330px;
         position: absolute;
         z-index: -1;
         padding: 2rem;
+        .title{
+          font-size: 1rem;
+        }
     }
     
     .Arcchart_svg{
@@ -25,7 +27,7 @@
     .tick{
         color: white;
         font-family: 'montserrat';
-        font-size: 1.2rem;
+        font-size: 0.9rem;
     }
     
     .tickNames{

@@ -18,8 +18,8 @@ class Arcchart extends React.Component{
     ['Did not disclose', '5' ],
     ['Other', '7']]
 
-    let width = 460;
-    let height = 800;
+    let width = 330;
+    let height = 620;
     let radius = Math.min(width, height) / 2;
     const node = this.node;
     const colorArray = ["#1192FD","#08E4CC","#7544CE","#21ACBF","#5D57D9","#5FB6FF","#75E8E3"];
@@ -31,13 +31,13 @@ class Arcchart extends React.Component{
     //Axis
     let yScale = d3.scalePoint()
                    .domain(data.map(d => d[0]))
-                   .range([0 , 300]);
+                   .range([0 , 220]);
 
     let yAxis = d3.axisRight(yScale);
 
     let yAxisG = d3.select(node)
                    .append('g')
-                   .attr('transform', 'translate(50, 80)') 
+                   .attr('transform', 'translate(50, 50)') 
                    .call(yAxis);
 
         yAxisG.select(".domain").remove();
@@ -58,12 +58,12 @@ class Arcchart extends React.Component{
     //Pie Chart
 
     let svg =  d3.select(node).append("g")
-                .attr('transform', 'translate(' + (242) +
-                    ',' + (650) + ')');
+                .attr('transform', 'translate(' + (radius) +
+                    ',' + (height-radius) + ')');
 
     let arc = d3.arc()
-                .outerRadius(radius)
-                .innerRadius(radius-60);
+                .outerRadius(radius*0.95)
+                .innerRadius(radius*0.7);
 
     let pie = d3.pie()
                 .value( d => d[1] )
@@ -85,7 +85,7 @@ class Arcchart extends React.Component{
         return(
             <div className="Arcchart_container">  
                 <div className="Arcchart_rectangle bg-color-black "><h3 className="title">ETHNICITY</h3></div>
-                <svg className="Arcchart_svg" ref={node => this.node = node} width={550} height={900}>
+                <svg className="Arcchart_svg" ref={node => this.node = node} width={330} height={641}>
                 </svg>
             </div>
         )

@@ -2,8 +2,50 @@
 @import '../NumIndicator/NumIndicator.scss';
 @import '../Bubblechart/Bubblechart.scss';
 @import '../Arcchart/Arcchart.scss';
+
 .statistics{
     color: white;
     padding: 0.8rem;
     margin: 0 auto;
+    display: flex;
+    width: 100%;
+    display: flex;
+    flex-flow: column;
+    max-width: 576px;
 }
+
+@media (min-width: 576px){
+  .statistics{
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@media (min-width: 992px){
+  .statistics{
+    max-width: 992px;
+    .charts-containter{
+      width: 992px;
+      height: 1600px;
+      display: flex;
+      flex-flow: column wrap;
+      align-content: space-evenly;
+    }
+  }
+
+}
+/* 
+
+@media (min-width: 1200px){
+  .statistics{
+    max-width: 1200px;
+    .charts-containter{
+      width: 1200px;
+      height: 1000px;
+      display: flex;
+      flex-flow: column wrap;
+    }
+  }
+} */
