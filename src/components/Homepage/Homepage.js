@@ -91,17 +91,16 @@ class Homepage extends React.Component{
     };
   
     render(){
-  {/*          */}
+  {/*  
+                  */}
         return(
           <Container className="homepage container-fluid"> 
             <NavBar className="navbar-expand" />
             <Header data={this.state.data.headerData}/>
-            <Slider data={this.state.data.sliderData}/>
+            <Slider data={this.state.data.sliderData}/>   
             <Membership data={this.state.data.membershipData}/>
             <Statistics data={this.state.data.statistics}/>
-            <NameList /> 
-    
-    
+            <NameList />
           </Container> 
         )
     }

@@ -8,12 +8,11 @@ function Membership(props){
     return(
         <div className="membership">
           <Image className="img_member" src={membership_img} fluid/>  
-        
           <div className="rectangle_member bg-color-black" >
             <h3 className="title">{props.data.title}</h3>
             <p className="main-content-text"> {props.data.textContent}  </p>
           </div>
-          <div className=" rectangle_bg bg-color-gradient" ></div>
+          <div className=" member_rectangle_bg bg-color-gradient" ></div>
          
         </div>
     )

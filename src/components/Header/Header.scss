@@ -3,114 +3,118 @@
   position: relative;
   width: 100%; 
   margin: 0 auto;
-  margin-top: 4rem;
-  z-index: 1;
+  margin-top: 3rem;
   color: white;
-  height: 160vw;
   overflow: hidden;
-}
-
-.rectangle{
-  width: 95%; 
-  height: 0;
-  padding: 7%;
-  padding-bottom: 140%;
-  position: absolute;
-}
-
-.mr-top{
-  top: 0;
-}
-
-.mr-right{
-  right: 0;
-}
-
-.mr-left{
-  left: 0;
-}
-
-.mr-bottom{
-  bottom: 0;
-}
-
-.back{
   z-index: 1;
 }
-.middle{
-  z-index: 2;
-}
-.top{
-  z-index: 3;
-}
-
-.main-content-text{
-  font-size: 4vw;
-  margin-bottom: 0.6em;
-  width: 90%;
-}
-
-.main-title{
-  font-size: 6.5vw;
-  font-weight: bold;
-  line-height: 1em;
-}
-
-.huge{
-  font-size: 4em;
-  font-weight: bold;
-  line-height: 0.9em;
-  margin-bottom: 0.2em;
-}
-
 
 .main-content{
-  margin-top: 35px;
+  position: relative;
+  width: 94%; 
+  padding: 8%;
+  margin-top: 7%;
+  z-index: 10;
 
+  .main-title{
+    font-size: 4.5vw;
+    margin-bottom: 1rem;
+  }
+  .main-header-tx{
+    font-size: 6vw;
+    font-weight: bold;
+    line-height: 1em;
+  }
+  .main-content-text{
+    font-size: 4vw;
+    width: 90%;
+  }
+  .huge{
+    font-size: 23vw;
+    font-weight: bold;
+    line-height: 0.9em;
+    margin-bottom: 0.2em;
+  }
+  .tx-color-gradient{
+    text-transform: uppercase;
+    background: linear-gradient(to right, #08E4CC, #1192FD);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .block{
+    display: block;
+  }
 }
 
-.tx-color-gradient{
-  text-transform: uppercase;
-  background: linear-gradient(to right, #08E4CC, #1192FD);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.block{
-  display: block;
+.rectangle_bg{
+  position: absolute;
+  right: 0;;
+  width: 94%; 
+  height: 95%;
+  padding: 8%;
 }
 
 .grammy-img{
   position: absolute;
+  top: 50px;
+  right: -70px;
   width: 43%;
-  margin-top: 60px; 
-  margin-left: 72%;
-  z-index: 5;
+  z-index: 20;
 }
 
 @media (min-width: 576px){
-    .header{
-      max-width: 576px;
-      margin: 0 auto;
-      height: 900px;
+
+  .main-content{
+
+    .main-title{
+      font-size: 1.5rem;
+    }
+ 
+    .main-header-tx{
+      font-size: 2rem;
     }
 
     .main-content-text{
       font-size: 1.4rem;
     }
-    .main-title{
-      font-size: 2em;
-    }
     .huge{
-      font-size: 4em;
-    }
-    .rectangle{
-      width: 520px; 
-      padding-bottom: 780px;
+      font-size: 8rem;
     }
   }
+  .grammy-img{
+    right: -80px;
+  }
+}
   
-  
+@media (min-width: 767px){
+
+  .main-content{
+    margin: 0 auto;
+    margin-top: 5%;
+
+    .main-title{
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+ 
+    .main-header-tx{
+      font-size: 2.5rem;
+    }
+
+    .main-content-text{
+      font-size: 1.2rem;
+    }
+    .huge{
+      font-size: 10rem;
+    }
+  }
+  .grammy-img{
+    right: -80px;
+    width: 40%;
+  }
+}
+
+
 @media (min-width: 992px){
     #navbar-icon {
       display: none;
@@ -124,58 +128,55 @@
       justify-content: space-evenly;
     }
   
-    .header{
-      overflow: visible;
-      max-width: 90%;
-      margin: 30px auto;
-      margin-bottom: 60px;
-      height: 500px;
-    }
-  
-    .main-content-text.title{
-      font-size: 1.3em;
-    }
-  
+  .header{
+    max-width: 90%;
+    margin-top: 2rem;
+    overflow: visible;
+    border: 1px solid transparent;
     .main-content{
-      margin-top: 60px;
-    }
+      margin-left: 0;
+      padding: 5%;
+      padding-left: 7%;
+      .main-title{
+        font-size: 1.5rem;
+      }
+   
+      .main-header-tx{
+        font-size: 3rem;
+      }
   
-    .main-title{
-      font-size: 2.5em;
-      line-height: 1em;
+      .main-content-text{
+        font-size: 1rem;
+        width: 60%;
+      }
+      .huge{
+        font-size: 12rem;
+      }
     }
-  
-    .huge{
-      font-size: 4em;
-      margin-bottom: 0;
+
+    .rectangle_bg{
+      position: absolute;
+      right: 0;
+      width: 80%; 
+      height: 60%;
+      padding: 8%;
     }
-  
-    .main-content-text{
-      font-size: 1rem;
-      width: 70%;
-    }
-  
-    .rectangle{
-      width: 90%; 
-      padding-top: 4%;
-      padding-left: 6%;
-      padding-bottom: 52%
-    }
-  
     .grammy-img{
-      width: 45%;
-      margin-top: 60px; 
-      margin-left: 60%;
-      z-index: 5;
+      right: -80px;
+      top:40px;
+      width: 50%;
     }
+  }
+
+    
 }
 
-@media (min-width: 1200px){
+/* @media (min-width: 1200px){
   .header{
     height: 600px;
   }
   .main-content-text{
     font-size: 1.2rem;
   }
-} 
+}  */
 

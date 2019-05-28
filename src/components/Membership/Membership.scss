@@ -16,7 +16,7 @@
       margin-left: 10%;
       z-index: 10;
     }
-    .rectangle_bg{
+    .member_rectangle_bg{
       position: relative;
       margin-left: 15%;
       width: 85%;
@@ -41,21 +41,28 @@
     .membership{
         max-width: 100%;
         margin-top: 2rem;
-
+        margin-bottom: 2rem;
+        height: 400px;
+ 
+        img{
+          margin-top: 2rem;
+          width: 50%;
+        }
         .rectangle_member{
-            height: 75%;
-            width: 55%;
-            top: 10px;
+          width: 60%;
+          margin-top: 0;
+          margin-left: 40%;
+          font-size: 0.9rem;
+          padding-right: 10%;
+
         }
-        .content_member{
-            height: 75%;
-            width: 80%;
-            top: -20px;
+        .member_rectangle_bg{
+          width: 55%;
+          margin-left: 45%;
+          height: 20px;
         }
 
-        .content_member .content_member_text .main-content-text{
-            width: 100%;
-        }
+    
     }
 
 }
