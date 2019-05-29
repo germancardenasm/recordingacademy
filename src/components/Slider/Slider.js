@@ -21,53 +21,48 @@ class Slider  extends React.Component{
           direction: e.direction,
         });
       }
-    
+
+      createCarouselItems(props){
+        let quotes = Object.values(props)
+        let items = quotes.map( (quote)=> {return(
+                          <Carousel.Item>
+                            <Carousel.Caption>
+                              <span className="slideText">{quote.quote}</span>
+                              <div className="actorSlideStat">
+                                <div className="actorSlideImage">TS</div> 
+                                <div className="actorStatistics"> 
+                                  <h5>{quote.actorName}</h5>
+                                  <p> Grammy wins: {quote.grammyWins}</p>   
+                                  <p> Grammy Nominations: {quote.grammyNominations}</p>   
+                                </div>  
+                              </div>
+                            </Carousel.Caption>
+                          </Carousel.Item> )})
+      
+        return(
+           items
+        )
+      
+      }
+
+      
       render() {
-        const { index, direction } = this.state;
+
 
         return (
+          <div className='slider'>
+          <h3 className="title">FEATURE INVITEES</h3>
           <Carousel className="slider"
-            activeIndex={index}
-            direction={direction}
-            onSelect={this.handleSelect}
             interval={null}>
-            <Carousel.Item>
-              <Carousel.Caption>
-                <h3 className="title">FEATURE INVITEES</h3>
-                <span className="slideText">{this.props.data[1].quote}</span>
-                <div className="actorSlideStat">
-                  <div className="actorSlideImage">TS</div> 
-                  <div className="actorStatistics"> 
-                      <h5>{this.props.data[1].actorName}</h5>
-                      <p> Grammy wins: {this.props.data[1].grammyWins}</p>   
-                      <p> Grammy Nominations: {this.props.data[1].grammyNominations}</p>   
-                  </div>  
-                </div>
-              </Carousel.Caption>
-            </Carousel.Item>
-           
             
-            <Carousel.Item>
-              <Carousel.Caption>
-                <h3>FEATURE INVITEES</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-              </Carousel.Caption>
-            </Carousel.Item>
-            <Carousel.Item>
-    
-              <Carousel.Caption>
-                <h3>FEATURE INVITEES</h3>
-                <p>
-                  Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-                </p>
-              </Carousel.Caption>
-            </Carousel.Item> 
+            {this.createCarouselItems(this.props.data)}
+
           </Carousel>
+          </div>
         );
       }
     
 }
 
-
-
 export default Slider;
+

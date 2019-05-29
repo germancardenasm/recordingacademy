@@ -14,15 +14,22 @@ const data ={
                        to the music community.`,
 
   },
-  sliderData:{
-      1:{
-        quote: `Lorem ipsum dolor sit amet, consectetur adipiscing elit,  sed do eiusmod tempor incididunt ut labore 
-        et dolore magna aliqua. Ut enim ad minim veniam.`,
-        actorName: "TOM SMITH",
-        grammyWins: "1",
-        grammyNominations: "3",
-      },
-  },
+    sliderData:{
+        1:{
+          quote: `Lorem ipsum dolor sit amet, consectetur adipiscing elit,  sed do eiusmod tempor incididunt ut labore 
+          et dolore magna aliqua. Ut enim ad minim veniam.`,
+          actorName: "TOM SMITH",
+          grammyWins: "1",
+          grammyNominations: "3",
+        },
+        2:{
+          quote: `sed do eiusmod tempor incididunt ut labore 
+          et dolore magna aliqua. Ut enim ad minim veniam.`,
+          actorName: "RAY JONES",
+          grammyWins: "3",
+          grammyNominations: "3",
+        },
+    },
   membershipData:{
       title: "RECORDING ACADEMY MEMBERSHIP",
       textContent: `Recording Academy members comprise a collective voice, the impact of which 
