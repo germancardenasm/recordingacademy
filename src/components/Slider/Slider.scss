@@ -5,7 +5,7 @@
     position: relative;
 
     .carousel-item{
-        height: 500px;
+        height: 550px;
 
         .carousel-caption{
             top:0;
@@ -82,12 +82,32 @@
 
 }
 
+
+
+@media (min-width: 576px){
+
+  .slider{
+      .carousel-item{
+          height: 500px;
+      }
+  }
+}
+
+@media (min-width: 767px){
+
+  .slider{
+      .carousel-item{
+          height: 450px;
+      }
+  }
+}
+
 @media (min-width: 992px){
 
     .slider{
         max-width: 1200px;
         .carousel-item{
-            height: 400px;
+            height: 375px;
         }
     }
 }
