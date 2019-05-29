@@ -6,7 +6,8 @@ import Header from '../Header/Header.js';
 import Slider from '../Slider/Slider.js';
 import Membership from "../Membership/Membership.js";
 import Statistics from "../Statistics/Statistics.js";
-import NameList from '../NameList/NameList.js'
+import NameList from '../NameList/NameList.js';
+import Footer from '../Footer/Footer.js'
 let loadedData = data;
 
 class Homepage extends React.Component{
@@ -101,6 +102,7 @@ class Homepage extends React.Component{
             <Membership data={this.state.data.membershipData}/>
             <Statistics data={this.state.data.statistics}/>
             <NameList />
+            <Footer />
           </Container> 
         )
     }
