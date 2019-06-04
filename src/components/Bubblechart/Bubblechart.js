@@ -33,7 +33,7 @@ class Bubblechart extends React.Component{
             
         
         const leaf = svg.selectAll("g")
-            .data(data)
+            .data(this.props.data)
             .join("g")
             .attr("transform",  d =>  `translate(${xScale(d[0])+200},${yScale(d[0])+85})`)          
  

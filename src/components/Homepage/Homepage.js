@@ -43,10 +43,9 @@ class Homepage extends React.Component{
                       other:"",
                       notDisclose:"",
                   },
-                  age:{
-                      under39:"",
-                      over40:"",
-                  },
+                  age:[ 
+                    ["39 and under", "55"], 
+                    [  "40 and over", "45"]],
                   genres:[
                     ["Pop", "18"],
                     ["Rock", "13"],
@@ -71,15 +70,14 @@ class Homepage extends React.Component{
                       ["Narrators", "0"],
                       ["Music Directors", "1"]
                   ],
-                  ethnicity:{
-                      african:"",
-                      alaskan:"",
-                      asian:"",
-                      caucasian:"",
-                      hispanic:"",
-                      notDisclose:"",
-                      other:"",
-                  },
+                  ethnicity:[
+                    ['African American', '25' ],
+                    ['Alaskan Native/American Indian', '4' ],
+                    ['Asian American/Pacific Islander', '11' ],
+                    ['Caucasian', '32'],
+                    ['Hispanic', '15' ],
+                    ['Did not disclose', '5' ],
+                    ['Other', '7']],
               }
               }
          }

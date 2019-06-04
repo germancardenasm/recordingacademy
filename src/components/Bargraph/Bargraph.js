@@ -96,7 +96,7 @@ class Bargraph extends React.Component{
      render(){
         return(
             <div className="bargraph_container">  
-                <div className="rectangle_statistics bg-color-black "><h3 className="title">GENRES</h3></div>
+                <div className="rectangle_statistics bg-color-black "><h3 className="title">{this.props.title}</h3></div>
                 <svg className="bargraph_svg" ref={node => this.node = node} width={330} height={556}>
                 </svg>
             </div>

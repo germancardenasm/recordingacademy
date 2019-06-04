@@ -11,25 +11,19 @@ class Statistics extends React.Component{
         super(props);
     }
 
-    componentDidMount(){
-        this.setState({
-           data: this.props,
-        });
-    };
- /**/
-
     render(){
+      let props = this.props;
         return(
           <div className="statistics">
-            <h3 className="title section-main-title"> Recording Academy Member Class Of 2019 Stats</h3>
+            <h3 className="title section-main-title">{props.data.title}</h3>
             <div className='charts-containter'>
-              <NumIndicator data={643} name={"GRAMMY NOMINATIONS"}/>
-              <NumIndicator data={210} name={"GRAMMY WINNERS"}/> 
-              <Bubblechart /> 
-              <Bubblechart /> 
-              <Bargraph data={this.props.data.genres}/>
-              <Bargraph data={this.props.data.craft}/> 
-              <Arcchart />
+              <NumIndicator data={props.data.grammyNominations} name={"GRAMMY NOMINATIONS"}/>
+              <NumIndicator data={props.data.grammyWinners} name={"GRAMMY WINNERS"}/> 
+              <Bubblechart data={props.data.age}/> 
+              <Bubblechart data={props.data.age}/> 
+              <Bargraph title='GENRES' data={props.data.genres}/>
+              <Bargraph title='CRAFT' data={props.data.craft}/> 
+              <Arcchart title='ETHNICITY' data={props.data.ethnicity}/>
             </div>
           </div>
 

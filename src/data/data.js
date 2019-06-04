@@ -43,30 +43,30 @@ const data ={
   statistics:{
 
     title:"RECORDING ACADEMY MEMBER CLASS OF 2019 STATS",
-    grammyNominations:"",
-    grammyWinners:"",
+    grammyNominations:100,
+    grammyWinners:100,
     gender: {
         male:"",
         female:"",
         other:"",
         notDisclose:"",
     },
-    age:{
-        under39:"",
-        over40:"",
-    },
-    genres:{
-        pop:"",
-        rock:"",
-        jazz:"",
-        newage:"",
-        bluegrass:"",
-        folk:"",
-        reggae:"",
-        world:"",
-        theater:"",
-        classical:"",
-    },
+    age:[ 
+      ["39 and under", "55"], 
+      [  "40 and over", "45"]],
+    genres:[
+      ["pop","18"],
+      ["rock","13"],
+      ["jazz","6"],
+      ["newage","5"],
+      ["bluegrass","19"],
+      ["folk","10"],
+      ["reggae","15"],
+      ["world","21"],
+      ["theater","4"],
+      ["classical","6"]
+    ] 
+    ,
     craft:[
        ["instrumentalist", "15"],
        ["vocalist", "10"],
@@ -79,15 +79,14 @@ const data ={
        ["narrators", "6"],
        ["musicDirectors", "12"]
     ],
-    ethnicity:{
-        african:"",
-        alaskan:"",
-        asian:"",
-        caucasian:"",
-        hispanic:"",
-        notDisclose:"",
-        other:"",
-    },
+    ethnicity:[
+      ['African American', '25' ],
+      ['Alaskan Native/American Indian', '4' ],
+      ['Asian American/Pacific Islander', '11' ],
+      ['Caucasian', '32'],
+      ['Hispanic', '15' ],
+      ['Did not disclose', '5' ],
+      ['Other', '7']],
   }
  }
 

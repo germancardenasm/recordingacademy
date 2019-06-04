@@ -70,21 +70,17 @@ class Arcchart extends React.Component{
                 .sort(null);
 
     let path = svg.selectAll('path')
-                .data(pie(data))
+                .data(pie(this.props.data))
                 .enter()
                 .append('path')
                 .attr('d', arc)
                 .attr('fill', d => colorScale(d.data[0]));
-    
-  
-            
-
     }
 
     render(){
         return(
             <div className="Arcchart_container">  
-                <div className="Arcchart_rectangle bg-color-black "><h3 className="title">ETHNICITY</h3></div>
+                <div className="Arcchart_rectangle bg-color-black "><h3 className="title">{this.props.title}</h3></div>
                 <svg className="Arcchart_svg" ref={node => this.node = node} width={330} height={641}>
                 </svg>
             </div>
