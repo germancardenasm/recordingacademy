@@ -1,11 +1,9 @@
 import React from 'react';
 import Image from 'react-bootstrap/Image';
-import Pagination from 'react-bootstrap/Pagination'
-import PageItem from 'react-bootstrap/PageItem' 
 import grammyWinnerLogo from '../../img/GrammyWinner.png';
 import arrowRight from '../../img/arrow-right.png';
 import arrowLeft from '../../img/arrow-left.png';
-import nominee from './data.js';
+import artists from './artistsList.js';
 
 class NameList extends React.Component {
 
@@ -14,9 +12,9 @@ class NameList extends React.Component {
         this.state={
             selectedLetter: "all",
             selectedPage: 1,
-            data: nominee,
-            shownListData: nominee,
-            nameListlength: nominee.length,
+            data: artists.nominee,
+            shownListData: artists.nominee,
+            nameListlength: artists.nominee.length,
             rowsperPage: 12,
             index: [],
         }
@@ -50,7 +48,7 @@ class NameList extends React.Component {
         let data = this.state.shownListData;
         let index = new Set();
         for(let i in data) 
-            index.add(data[i][0].lastName[0].toUpperCase());
+            index.add(data[i].lastName[0].toUpperCase());
         
         this.setState({
             index: Array.from(index),
@@ -60,7 +58,7 @@ class NameList extends React.Component {
     filterList(){
         let filteredArtists =[];
         if(this.state.selectedLetter!=="all")
-             filteredArtists = this.state.data.filter( d => d[0].lastName[0]===this.state.selectedLetter);
+             filteredArtists = this.state.data.filter( d => d.lastName[0]===this.state.selectedLetter);
         else
              filteredArtists = this.state.data;
 
@@ -139,7 +137,7 @@ function TableRows(props) {
       rowsToPrint -= (props.rowsperPage  - props.nameListlength % props.rowsperPage)
 
     for(let index = (props.selectedPage-1)*props.rowsperPage ; index < rowsToPrint; index++){
-        rows.push(<ListItem data={props.data[index][0]} key={index}/>)
+        rows.push(<ListItem data={props.data[index]} key={index}/>)
     }
     return rows;
 }
@@ -203,7 +201,5 @@ function PagerButtons(props){
   }
   return buttons;
 }
-
-
 
 export default NameList;
