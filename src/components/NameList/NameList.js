@@ -12,16 +12,15 @@ class NameList extends React.Component {
         this.state={
             selectedLetter: "all",
             selectedPage: 1,
-            data: artists.nominee,
-            shownListData: artists.nominee,
-            nameListlength: artists.nominee.length,
+            data: this.props.listOfArtists,
+            shownListData: this.props.listOfArtists,
+            nameListlength: this.props.listOfArtists.length,
             rowsperPage: 12,
             index: [],
         }
     }
 
     AlphabethicOnClickHandler(data){
-
       this.setState({
         selectedPage: 1,
       });
@@ -37,46 +36,62 @@ class NameList extends React.Component {
         }
     }
 
-
     indexOnClickHandler(data) {
-          this.setState({
-            selectedPage: data,
-          }, ()=> this.filterList()); 
+      this.setState({
+        selectedPage: data,
+      }, ()=> this.filterList()); 
     }
 
-    getInitials(){
-        let data = this.state.shownListData;
-        let index = new Set();
-        for(let i in data) 
-            index.add(data[i].lastName[0].toUpperCase());
-        
-        this.setState({
-            index: Array.from(index),
-        })
+    getInitials(){  
+      let data = this.state.shownListData;
+      let index = new Set();
+      for(let i in data) 
+          index.add(data[i].lastName[0].toUpperCase());
+      return Array.from(index);
+      this.setState({
+          index: Array.from(index),
+      })
     }
 
     filterList(){
-        let filteredArtists =[];
-        if(this.state.selectedLetter!=="all")
-             filteredArtists = this.state.data.filter( d => d.lastName[0]===this.state.selectedLetter);
-        else
-             filteredArtists = this.state.data;
+      let filteredArtists =[];
+      if(this.state.selectedLetter!=="all")
+            filteredArtists = this.state.data.filter( d => d.lastName[0]===this.state.selectedLetter);
+      else
+            filteredArtists = this.state.data;
 
-        this.setState({
-            shownListData: filteredArtists,
-            nameListlength: filteredArtists.length,
-        })
+      this.setState({
+          shownListData: filteredArtists,
+          nameListlength: filteredArtists.length,
+      })
     }
     
-    componentDidMount(){
-        this.getInitials();
+    componentDidUpdate(prevProps, prevState, snapshot){
+      //this.getInitials();
+      const newProps = this.props
+      if(prevProps.listOfArtists !== newProps.listOfArtists) {
+        this.setState( {
+          data: newProps.listOfArtists,
+          shownListData: newProps.listOfArtists,
+          nameListlength: newProps.listOfArtists.length,
+        } )
+        console.log('componentDidUpdate just updated this.state');
+       }
+      console.log('NameList did Update');
     }
 
+    componentDidMount(){
+      //this.getInitials();
+      console.log('NameList did Mount');
+    }
+    
+
     render(){
+        let initialsForPager = this.getInitials();
         return (
             <div className='namelist-container'>
               <h3 className="title section-main-title">Recording Academy Member Class Of 2019 List</h3>
-              <AlphabeticPager  data={this.state.index} 
+              <AlphabeticPager  data={initialsForPager} 
                                 selectedLetter={this.state.selectedLetter} 
                                 onClick={(data) => this.AlphabethicOnClickHandler(data)} />
               <Table            data={this.state.shownListData} 
@@ -106,32 +121,33 @@ function AlphabeticPager(props){
 }
 
 function AlphabeticButtons(props) {
-    let buttons = [];
-    let letters =  props.data;
-    
-    for(let i in letters){
-      buttons.push(
-        <div className = { props.selectedLetter == letters[i] ? 'indexButton selected' : 'indexButton'}
-             value={letters[i]} 
-             key={i}  
-             onClick = {() => props.onClick(letters[i])}> 
-          {letters[i]}
-        </div>)
-    }
-    return buttons;
+  let buttons = [];
+  let letters =  props.data;
+  
+  for(let i in letters){
+    buttons.push(
+      <div className = { props.selectedLetter == letters[i] ? 'indexButton selected' : 'indexButton'}
+            value={letters[i]} 
+            key={i}  
+            onClick = {() => props.onClick(letters[i])}> 
+        {letters[i]}
+      </div>)
+  }
+  return buttons;
 }
 
 function Table(props){
-    return(
-        <div className='nameTable'>
-            <TableRows data={props.data} selectedPage={props.selectedPage} nameListlength={props.nameListlength} rowsperPage={props.rowsperPage}/>
-        </div>
-    )
+  return(
+      <div className='nameTable'>
+          <TableRows data={props.data} selectedPage={props.selectedPage} nameListlength={props.nameListlength} rowsperPage={props.rowsperPage}/>
+      </div>
+  )
 }
 
 function TableRows(props) {
-    let rows = []; 
-    
+  let rows = []; 
+
+  if(props.data.length > 0){
     let rowsToPrint =  (props.selectedPage*props.rowsperPage);
     if(isLastPage(props))
       rowsToPrint -= (props.rowsperPage  - props.nameListlength % props.rowsperPage)
@@ -139,7 +155,9 @@ function TableRows(props) {
     for(let index = (props.selectedPage-1)*props.rowsperPage ; index < rowsToPrint; index++){
         rows.push(<ListItem data={props.data[index]} key={index}/>)
     }
-    return rows;
+    
+  }
+  return rows;
 }
 
 function isLastPage(props){
@@ -149,17 +167,16 @@ function isLastPage(props){
 
 function ListItem(props){
   return(
-      <div className='listItem'> 
-        <span className='list Items firstName'>{props.data.name}</span> <span className='list Items lastName'>{props.data.lastName}</span>
-        <span className="listItem-icons" style={{display: props.data.grammyWinner ? 'inline-block' : 'none'}}>   
-        <Image className="grammyWinnerImage" src={grammyWinnerLogo}/>
-        <a className="control-next" role="button" href="#">
-          <Image className="control-next-icon" src={arrowRight}/> 
-        </a>
-    
-        </span>
-      </div>
-    )
+    <div className='listItem'> 
+      <span className='list Items firstName'>{props.data.name}</span> <span className='list Items lastName'>{props.data.lastName}</span>
+      <span className="listItem-icons" style={{display: props.data.grammyWinner ? 'inline-block' : 'none'}}>   
+      <Image className="grammyWinnerImage" src={grammyWinnerLogo}/>
+      <a className="control-next" role="button" href="#">
+        <Image className="control-next-icon" src={arrowRight}/> 
+      </a>
+      </span>
+    </div>
+  )
 }
 
 function Results(props) {
@@ -185,9 +202,7 @@ function Pager(props){
 }
 
 function PagerButtons(props){
-
   let buttons = [];
-
   let qtyOfButtons =  Math.ceil(props.nameListlength / props.rowsperPage);
     
   for(let i= 1; i <= qtyOfButtons; i++){
