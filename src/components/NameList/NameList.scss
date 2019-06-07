@@ -8,27 +8,26 @@
 
     .alphaPager{
       text-align: center;
-        .indexButton{
-            font-weight: bold;
-            font-size: 1.2rem;
-            display: inline-block;
-            width: 50px;
-            height: 50px;
-            line-height: 50px;
-            text-align: center;
-            margin: 0.25rem;
-            border-radius: 50%;
-        }
-        .selected{
-          background-color: #1192FD;
-        }
-        .indexButton:hover{
-          background-color: hsla(100%,100%,100%,0.7);
-          cursor: pointer;
-        }
-
     }
 
+    .indexButton{
+      font-weight: bold;
+      font-size: 1.2rem;
+      display: inline-block;
+      width: 50px;
+      height: 50px;
+      line-height: 50px;
+      text-align: center;
+      margin: 0.25rem;
+      border-radius: 50%;
+  }
+  .selected{
+    background-color: #1192FD;
+  }
+  .indexButton:hover:not(.selected){
+    background-color: hsla(100%,100%,100%,0.7);
+    cursor: pointer;
+  }
     .nameTable{
         font-size: 1.5rem;
         color: white;

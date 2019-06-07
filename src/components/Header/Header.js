@@ -1,9 +1,8 @@
-import React from 'react';
+import  React  from 'react';
 import Image from 'react-bootstrap/Image';
 import grammy from '../../img/GRAMMY_FinalRendering_White_01_101818_t.png';
 
 function Header(props){
-{/* */}
     return(
       <div className="header">
         <div className="rectangle_bg bg-color-gradient" /> 

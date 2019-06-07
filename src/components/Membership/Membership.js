@@ -3,8 +3,7 @@ import Image from 'react-bootstrap/Image';
 import membership_img from "../../img/membership_img.png";
 
 function Membership(props){
-  {/* 
-   */}
+
     return(
         <div className="membership">
           <Image className="img_member" src={membership_img} fluid/>  

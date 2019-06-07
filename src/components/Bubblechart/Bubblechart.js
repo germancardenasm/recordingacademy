@@ -1,7 +1,7 @@
-import  React from 'react';
+import  React , {Component} from 'react';
 import * as d3 from "d3";
 
-class Bubblechart extends React.Component{
+class Bubblechart extends Component{
 
     constructor(props){
         super(props)
@@ -18,8 +18,7 @@ class Bubblechart extends React.Component{
      createChart() {
         const data = [ ["39 and under", "55"], [  "40 and over", "45"]];
         const node = this.node 
-        let margin = {top: 50, right: 0, bottom: 0, left: 60};
-
+    
         let rScale = d3.scaleLinear().range([0,75]);
             rScale.domain([0,d3.max(data, (d)=>parseFloat(d[1]))]);
         let yScale= d3.scaleBand().range([0,130]).paddingInner(0.2);

@@ -1,4 +1,4 @@
-import React from 'react';
+import  React , {Component} from 'react';
 import Container from 'react-bootstrap/Container';
 import NavBar from '../NavBar/NavBar.js';
 import dataFromServer from '../../data/data.js';
@@ -11,7 +11,7 @@ import NameList from '../NameList/NameList.js';
 import Footer from '../Footer/Footer.js';
 
 
-class Homepage extends React.Component{
+class Homepage extends Component{
     constructor(props){
         super(props);
         this.state= {

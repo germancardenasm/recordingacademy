@@ -1,7 +1,7 @@
-import  React from 'react';
+import  React , {Component} from 'react';
 import * as d3 from "d3";
 
-class Bargraph extends React.Component{
+class Bargraph extends Component{
 
     constructor(props){
         super(props)

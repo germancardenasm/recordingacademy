@@ -1,8 +1,8 @@
-import  React from 'react';
+import  React , {Component} from 'react';
 import * as d3 from "d3";
 
 
-class Arcchart extends React.Component{
+class Arcchart extends Component{
 
   componentDidMount() {
     this.createChart();
@@ -69,7 +69,7 @@ class Arcchart extends React.Component{
                 .value( d => d[1] )
                 .sort(null);
 
-    let path = svg.selectAll('path')
+    svg.selectAll('path')
                 .data(pie(this.props.data))
                 .enter()
                 .append('path')
